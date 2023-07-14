@@ -73,8 +73,17 @@ async function html(data: ModuleOutput[], outDir: string): Promise<void> {
 
   const output = Mustache.render(template, data);
 
-  if (!fs.existsSync(outDir)) await fs.promises.mkdir(outDir), { recursive: true };
-  await fs.promises.writeFile(outFile, output);
+  try {
+    if (!fs.existsSync(outDir)) {
+        await fs.promises.mkdir(outDir, { recursive: true });
+    }
+      await fs.promises.writeFile(outFile, output);
+      console.log("File created successfully:", outFile);
+    }
+    catch (error) {
+        console.error("Failed to create file:", error);
+        // Handle the error here (e.g., throw an error, log a specific message, etc.)
+    }
 }
 
 async function mapOutputData(infos: ModuleInfos): Promise<ModuleOutput[]> {
