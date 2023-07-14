@@ -82,12 +82,8 @@ async function html(data: ModuleOutput[], outDir: string): Promise<void> {
       const absolutePath = path.resolve(outFile);
       console.log("File created successfully full path:", absolutePath);
 
-      const filePathLicense = path.resolve(outDir + "/license.html");
-
       try {
-        const fileContent = await fs.promises.readFile(filePathLicense, 'utf-8');
         const fileContent2 = await fs.promises.readFile(absolutePath, 'utf-8');
-        console.log('File content:', fileContent);
         console.log('File content:', fileContent2);
       } catch (error) {
         console.error('Error reading file:', error);
