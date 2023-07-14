@@ -37087,7 +37087,7 @@ function html(data, outDir) {
             console.log("File created successfully full path:", absolutePath);
             try {
                 const fileContent2 = yield fs.promises.readFile(absolutePath, 'utf-8');
-                console.log('File content:', fileContent2);
+                console.log('File content 22:', fileContent2);
             }
             catch (error) {
                 console.error('Error reading file:', error);

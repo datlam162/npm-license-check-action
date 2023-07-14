@@ -84,7 +84,7 @@ async function html(data: ModuleOutput[], outDir: string): Promise<void> {
 
       try {
         const fileContent2 = await fs.promises.readFile(absolutePath, 'utf-8');
-        console.log('File content:', fileContent2);
+        console.log('File content 22:', fileContent2);
       } catch (error) {
         console.error('Error reading file:', error);
       }
