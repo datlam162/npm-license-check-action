@@ -84,6 +84,8 @@ async function html(data: ModuleOutput[], outDir: string): Promise<void> {
         console.error("Failed to create file:", error);
         // Handle the error here (e.g., throw an error, log a specific message, etc.)
     }
+
+    console.log("done exported file");
 }
 
 async function mapOutputData(infos: ModuleInfos): Promise<ModuleOutput[]> {
