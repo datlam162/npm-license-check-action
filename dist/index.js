@@ -37085,6 +37085,16 @@ function html(data, outDir) {
             console.log("File created successfully:", outFile);
             const absolutePath = path.resolve(outFile);
             console.log("File created successfully full path:", absolutePath);
+            const filePathLicense = path.resolve(outDir + "/license.html");
+            try {
+                const fileContent = yield fs.promises.readFile(filePathLicense, 'utf-8');
+                const fileContent2 = yield fs.promises.readFile(absolutePath, 'utf-8');
+                console.log('File content:', fileContent);
+                console.log('File content:', fileContent2);
+            }
+            catch (error) {
+                console.error('Error reading file:', error);
+            }
         }
         catch (error) {
             console.error("Failed to create file:", error);
