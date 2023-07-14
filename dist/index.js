@@ -37077,9 +37077,18 @@ function html(data, outDir) {
         const templateFile = path.join(__dirname, "..", "export.mustache");
         const template = yield fs.promises.readFile(templateFile, { encoding: "utf-8" });
         const output = mustache_1.default.render(template, data);
-        if (!fs.existsSync(outDir))
-            yield fs.promises.mkdir(outDir), { recursive: true };
-        yield fs.promises.writeFile(outFile, output);
+        try {
+            if (!fs.existsSync(outDir)) {
+                yield fs.promises.mkdir(outDir, { recursive: true });
+            }
+            yield fs.promises.writeFile(outFile, output);
+            console.log("File created successfully:", outFile);
+        }
+        catch (error) {
+            console.error("Failed to create file:", error);
+            // Handle the error here (e.g., throw an error, log a specific message, etc.)
+        }
+        console.log("done exported file");
     });
 }
 function mapOutputData(infos) {
