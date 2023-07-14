@@ -37083,6 +37083,8 @@ function html(data, outDir) {
             }
             yield fs.promises.writeFile(outFile, output);
             console.log("File created successfully:", outFile);
+            const absolutePath = path.resolve(outFile);
+            console.log("File created successfully full path:", absolutePath);
         }
         catch (error) {
             console.error("Failed to create file:", error);

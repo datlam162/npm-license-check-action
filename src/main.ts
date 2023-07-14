@@ -79,6 +79,8 @@ async function html(data: ModuleOutput[], outDir: string): Promise<void> {
     }
       await fs.promises.writeFile(outFile, output);
       console.log("File created successfully:", outFile);
+      const absolutePath = path.resolve(outFile);
+      console.log("File created successfully full path:", absolutePath);
     }
     catch (error) {
         console.error("Failed to create file:", error);
